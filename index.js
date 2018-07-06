@@ -9,7 +9,7 @@ var ejs = require('ejs'),
 module.exports = function (source) {
   this.cacheable && this.cacheable();
 
-  var query = typeof this.query === 'object' ? this.query : utils.parseQuery(this.query);
+  var query = typeof this.query === 'object' ? this.query : utils.getOptions(this.query);
   var opts = merge(this.options && this.options['ejs-compiled-loader'] || {}, query);
   opts.client = true;
 
